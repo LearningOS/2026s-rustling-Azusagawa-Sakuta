@@ -69,17 +69,6 @@ impl<T> LinkedList<T> {
         }
     }
 
-    fn take_node(self, node: Option<NonNull<Node<T>>>) -> Option<T> {
-        match node {
-            None => None,
-            Some(next_ptr) => {
-                unsafe {
-                    Some((*next_ptr.as_ptr()).val)
-                }
-            }
-        }
-    }
-
     fn get_next_ptr(&mut self, node: Option<NonNull<Node<T>>>) -> Option<NonNull<Node<T>>> {
         match node {
             None => None,
